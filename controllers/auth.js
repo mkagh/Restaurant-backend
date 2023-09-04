@@ -3,7 +3,7 @@ const passport = require("passport")
 const bcrypt = require('bcrypt');
 const { createCustomError } = require("../errors/custom-api-error")
 
-const Register = async (req, res, next) => {
+const register = async (req, res, next) => {
 
     const { username, email, password, confirmPassword } = req.body
     const hashedPwd = await bcrypt.hash(password, 10);
@@ -48,7 +48,7 @@ const Register = async (req, res, next) => {
 
 
 
-const Login = async (req, res, next) => {
+const login = async (req, res, next) => {
 
     passport.authenticate("local", (err, user) => {
         if (err) {
@@ -68,10 +68,10 @@ const Login = async (req, res, next) => {
 
 
 
-const Logout = (req, res) => {
+const logout = (req, res) => {
     res.cookie('userData', '', { expires: new Date(0), path: '/' });
     res.json({ nesto: "nesto" })
 
 }
 
-module.exports = { Register, Login, Logout }
+module.exports = {register, login,logout }

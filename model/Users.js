@@ -4,7 +4,6 @@ const UsersShema = new mongoose.Schema({
     username: {
         type: String,
         required: true
-
     },
     email: {
         type: String,
@@ -18,7 +17,6 @@ const UsersShema = new mongoose.Schema({
         type: Array,
         default: []
     },
-
     price: {
         type: Number,
         default: 0
@@ -29,7 +27,6 @@ const UsersShema = new mongoose.Schema({
     status: {
         type: Boolean,
     },
-
 })
 
 module.exports = mongoose.model("user", UsersShema)

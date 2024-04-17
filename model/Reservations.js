@@ -20,8 +20,6 @@ const ReservationsShema = new mongoose.Schema({
     member: {
         type: Boolean,
     }
-
-
 })
 
 module.exports = mongoose.model("reservations", ReservationsShema)

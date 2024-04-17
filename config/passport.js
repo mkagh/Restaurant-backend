@@ -9,20 +9,15 @@ const ConfigLogin = (passport) => {
             Users.findOne({ email: email })
                 .then(async (user) => {
                     if (!user) {
-
                         done(null, false, { msg: "There is no user like this" })
                     }
                     const match = await bcrypt.compare(password, user.password);
                     if (match) {
-
                         return done(null, user);
                     }
-
                     if (password !== user.password) {
                         return done(null, false, { msg: 'Password incorrect' });
-
                     }
-
                 })
         })
     )
